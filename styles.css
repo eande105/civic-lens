@@ -1,9 +1,20 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by Student Developer */
 
-/* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ///ADD/// CSS Reset */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
 
 
 /* Root Variables */
@@ -38,28 +49,464 @@ body.dark-mode {
   cursor: pointer;
 }
 
-/* ///ADD/// Skip Link Styles */
+/* Theme toggle icon visibility */
+#theme-toggle svg {
+  width: 35px;
+  height: 35px;
+  display: block;
+}
 
-/* ///ADD/// Navigation Styles */
+.icon-sun,
+.icon-moon {
+  display: none;
+}
 
-/* ///ADD/// Global Layout Styles */
+/* Support for setting mode on either html or body to avoid flash */
+html.light-mode .icon-sun,
+body.light-mode .icon-sun {
+  display: block;
+}
+html.light-mode .icon-moon,
+body.light-mode .icon-moon {
+  display: none;
+}
 
-/* ///ADD/// Global Text Styles */
+html.dark-mode .icon-moon,
+body.dark-mode .icon-moon {
+  display: block;
+}
+html.dark-mode .icon-sun,
+body.dark-mode .icon-sun {
+  display: none;
+}
 
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+  font-weight: bold;
+}
 
-/* ///ADD/// medium styles 620px */
+.skip-link:focus {
+  top: 0;
+}
 
+/* Header Styles */
+header {
+  position: relative;
+  padding: 1rem;
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+}
 
-/* ///ADD/// large styles 920px */
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
 
+header .tagline {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
 
-/* ///ADD/// x-large styles 1024px */
+/* Navigation Styles */
+.mobile-nav {
+  position: relative;
+}
 
+.menu-button {
+  display: block;
+  background: var(--news-flash);
+  color: white;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  user-select: none;
+}
 
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+.menu {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  background: var(--story-subtitle);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
 
+.menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-/* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.menu a:hover {
+  background: var(--blue-bulletin);
+}
+
+/* Main Content */
+main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--news-flash);
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--story-subtitle);
+  padding-bottom: 0.5rem;
+}
+
+article {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--blue-bulletin);
+  background: rgba(29, 53, 87, 0.05);
+  border-radius: 4px;
+}
+
+article h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--blue-bulletin);
+  margin-bottom: 0.75rem;
+}
+
+article p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+/* Form Styles */
+form {
+  background: rgba(29, 53, 87, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+}
+
+form div,
+fieldset {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--blue-bulletin);
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--story-subtitle);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--news-flash);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+fieldset {
+  border: 1px solid var(--story-subtitle);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--blue-bulletin);
+  padding: 0 0.5rem;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+  display: inline;
+  margin-bottom: 0;
+  margin-right: 1rem;
+  font-weight: normal;
+}
+
+button[type="submit"] {
+  background: var(--news-flash);
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button[type="submit"]:hover {
+  background: #d62828;
+}
+
+/* Footer Styles */
+footer {
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 3px solid var(--news-flash);
+}
+
+/* Social Links */
+#social ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#social a {
+  color: var(--news-flash);
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+#social a:hover {
+  text-decoration: underline;
+}
+
+/* Medium screens (620px) */
+@media screen and (min-width: 620px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  header h1 {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .mobile-nav {
+    flex: 1;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .menu {
+    display: flex !important;
+    flex-direction: row;
+    background: transparent;
+    margin-top: 0;
+  }
+
+  .menu li {
+    border-bottom: none;
+  }
+
+  .menu a {
+    color: var(--watchdog-white);
+  }
+
+  .menu a:hover {
+    background: transparent;
+    color: var(--news-flash);
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  #newsletter {
+    max-width: 600px;
+  }
+}
+
+/* Large screens (920px) */
+@media screen and (min-width: 920px) {
+  header {
+    flex-direction: row;
+    padding: 2rem;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  article h3 {
+    font-size: 1.6rem;
+  }
+
+  #breaking-news > article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  #breaking-news article:nth-child(odd) {
+    direction: rtl;
+  }
+
+  #breaking-news article > * {
+    direction: ltr;
+  }
+}
+
+/* X-Large screens (1024px) */
+@media screen and (min-width: 1024px) {
+  main {
+    padding: 3rem;
+  }
+
+  #featured-articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  #featured-articles h2 {
+    grid-column: 1 / -1;
+  }
+
+  form {
+    max-width: 600px;
+  }
+
+  #social ul {
+    justify-content: center;
+  }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+
+  article {
+    background: rgba(29, 53, 87, 0.05);
+    border-left-color: var(--blue-bulletin);
+  }
+
+  form {
+    background: rgba(29, 53, 87, 0.05);
+  }
+
+  input[type="text"],
+  input[type="tel"] {
+    background: white;
+    color: var(--truth-text);
+    border-color: var(--story-subtitle);
+  }
+
+  fieldset {
+    border-color: var(--story-subtitle);
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  article {
+    background: rgba(241, 250, 238, 0.05);
+    border-left-color: var(--story-subtitle);
+  }
+
+  form {
+    background: rgba(241, 250, 238, 0.05);
+  }
+
+  input[type="text"],
+  input[type="tel"] {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--watchdog-white);
+    border-color: var(--story-subtitle);
+  }
+
+  input[type="text"]::placeholder,
+  input[type="tel"]::placeholder {
+    color: rgba(241, 250, 238, 0.5);
+  }
+
+  fieldset {
+    border-color: var(--story-subtitle);
+  }
+
+  #theme-toggle {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Feature Query for :has() - Menu Toggle */
 @supports (selector(:has(*))) {
-
+  #menu-toggle:checked ~ .menu {
+    display: flex !important;
+  }
 }
